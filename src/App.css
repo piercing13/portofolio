@@ -1,0 +1,117 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+.App {
+  
+  background-color: var(--light-blue);
+  
+  height: 100vh;
+  width: 100%;
+  scrollbar-shadow-color: #c2dfe3;
+
+}
+
+.loading{
+  
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fading {
+  0% {opacity: 0}
+  50% {opacity: 100%;}
+  100% {opacity: 0%;}
+}
+
+.App-header{
+  animation: fading 3s; 
+  animation-fill-mode: forwards;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-header span{
+ 
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+.flag-sk{
+  width: 70px;
+}
+
+nav ul{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+  font-size: 30px;
+ 
+}
+
+@keyframes appear{
+  from{opacity: 0%;}
+  to{opacity: 100%;}
+}
+
+.appear{
+  animation: appear 2s;
+}
+.nav{
+  position: fixed;
+  top: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #c2dfe3;
+  animation: appear 2s; 
+  z-index: 100;
+  
+}
+
+nav ul li{
+  text-decoration: none;
+  list-style: none;
+  padding-right: 30px;
+  cursor: pointer;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  
+  
+}
+
+.container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes bounce{
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+nav ul li:hover{
+  
+  animation-name: bounce;
+  animation-timing-function: ease;
+  color: var(--dark-blue);
+}
+
