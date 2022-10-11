@@ -11,7 +11,7 @@ import Contact from './section/Contact';
 function App() {
   const [loading, setLoading] = useState(false);
   const [page,setPage] = useState([]);
-
+  const [offsetY, setOffsetY] =useState(false);
   
 
   useEffect(()=>{
@@ -31,9 +31,25 @@ function App() {
 
   },[])
 
-  console.log(page)
+  const changeBackground= () =>{
+    if (window.scrollY >= 100){
+      setOffsetY(true);
+    } else {
+      setOffsetY(false);
+    }
+
+  }
+  
+  window.addEventListener('scroll', changeBackground)
+
+  
+
+  
+
+  
   return (
-    <div className="App">
+    <div className="App" >
+      
       {
         loading ?
         <div className='loading'><HashLoader  color="#133c55" /></div>
@@ -55,7 +71,7 @@ function App() {
 
 
             <nav>
-              <ul className='nav body-font'>
+              <ul className={offsetY  ? " nav body-font show" : "nav body-font "}>
                 <li><Link to="home" spy={true} smooth={true}>Home</Link> </li>
                 <li><Link to="about" spy={true} smooth={true}>About</Link> </li>
                 <li><Link to="project" spy={true} smooth={true}>Project</Link> </li>
@@ -63,11 +79,28 @@ function App() {
               </ul>
             </nav>
 
-            <Home />
-            <About />
-            <Project />
-            <Contact />
+            <div className='sections'>
+              
+            <section>
+                <Home />
+              </section>
 
+              <section>
+              <About />
+              </section>
+
+             <section>
+             <Project />               
+              </section>
+
+              <section>
+              <Contact />              
+              </section>
+
+
+            </div>
+
+            
            
             
 
